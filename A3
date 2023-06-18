@@ -9,6 +9,7 @@
 </head>
 <body>
 <header id="header"></header>
+<p id = "CurrentDateTime" style="text-align: center;"></p>
 
     <form>
         <input type="text" id = "NameInput" name="user_name" placeholder="Enter your name!">        
@@ -51,7 +52,7 @@
     
     function DatesTime(){
         var CurrentDate = new Date();
-        var DateTime = document.getElementById("CurrentDateAndTime");
+        var DateTime = document.getElementById("CurrentDateTime");
         DateTime.innerHTML = CurrentDate;
     }
     window.onload = DatesTime;
