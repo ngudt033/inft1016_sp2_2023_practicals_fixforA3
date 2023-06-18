@@ -15,12 +15,6 @@
         <button type="submit" onclick ="InputName()">Apply!</button> 
     </form>
 
-
-
-    <div style="text-align: center;">
-        <img id="mainImage" src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg" alt="Default Image">
-        <p id="takenby">""Corfu - Sept 2005 - Ancient Olive Trees" by Gareth1953 All Right Now is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/?ref=openverse.</p>
-        </div>
 </body>
 <script>
 
@@ -69,6 +63,29 @@
         localStorage.setItem("Username", Name);
     }
 
+    function ShowPicture1(){
+        document.getElementById("Image").src= "https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg"
+        document.getElementById("AcknowledgementText").innerHTML = "Artificial intelligence, Brain, Think image. - By Geralt - Licensed under Pixabay License"
+    }
+
+    function ShowPicture2(){
+        document.getElementById("Image").src= "https://c0.wallpaperflare.com/preview/570/38/521/artificial-intelligence-technology-futuristic-science.jpg"
+        document.getElementById("AcknowledgementText").innerHTML = "“artificial intelligence, technology, futuristic, science, business” - By Wallpaper Flare - Licensed under No Known Copyright Restrictions"
+    }
+
+    function ShowPicture3(){
+        document.getElementById("Image").src= "https://upload.wikimedia.org/wikipedia/commons/7/7e/Robot-job-takeover-unemployment.jpg?20170601193158"
+        document.getElementById("AcknowledgementText").innerHTML = "“Robot job takeover unemployment” - By Qniksefat - Licensed under CC0 Public Domain"
+    }
+    function ShowPicture4(){
+        document.getElementById("Image").src= "https://c.pxhere.com/images/fe/8c/b915fc5d7667d29dd9a3eedae59a-1638452.jpg!d"
+        document.getElementById("AcknowledgementText").innerHTML = "“Robots & Humans” - By Mohamed Hassan - Licensed under CC0 Public Domain"
+    }
+    function ShowPicture5(){
+        document.getElementById("Image").src= "https://uploads-ssl.webflow.com/5ea82056771c9dd4b6f61bdc/626feca0c824dd1d57052af8_7.png"
+        document.getElementById("AcknowledgementText").innerHTML = "“Future of “Work”” - By Hongxin (Dean) Long - Licensed under No Known Copyright Restrictions"
+    }
+
 </script>
 
     <header>
@@ -85,5 +102,20 @@ AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
         <li><a href="#">Does artificial intelligence pose a risk to current data engineers, and does it have any advantages?</a></li>
         <li><a href="#">The sustainability of data engineers along with artificial intelligence</a></li>
     </ul>
+
+    <div style="text-align: center;">
+        <p>
+        <img id="Image" src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" alt="Default Image">
+        <p id="AcknowledgementText">Artificial intelligence, Brain, Think image. - By Geralt - Licensed under Pixabay License </p>
+            <button onclick = "ShowPicture1()" >AI</button>
+            <button onclick = "ShowPicture2()" >Could AI be helpful?</button>
+            <button onclick = "ShowPicture3()" >Robot Takeover</button>
+            <button onclick = "ShowPicture4()" >Coexistence</button>
+            <button onclick = "ShowPicture5()" >Future of Work</button>
+            </p>
+        </div>
     
 </nav>
+
+
+
