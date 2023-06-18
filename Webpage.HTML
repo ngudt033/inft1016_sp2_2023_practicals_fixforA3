@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Assignment 3 - My WebPage</title>
+
+    <link rel="stylesheet" href="base.css">
+   
+</head>
+<body>
+<header id="header"></header>
+<!--Displays the current date and time-->
+<p id = "CurrentDateTime" style="text-align: center;"></p>
+
+    <form>
+        <!--Prompts the user to input their name -->
+        <input type="text" id = "NameInput" name="user_name" placeholder="Enter your name!">        
+        <button type="submit" onclick ="InputName()">Apply!</button> 
+    </form>
+
+</body>
+<script>
+    //Reads the local storage on page load and changes the users preferred settings
+    const StoredTheme = localStorage.getItem("ThemePrefe");
+    if (StoredTheme){
+        document.documentElement.setAttribute("data-theme", StoredTheme)
+    }
+    
+    const StoreName = localStorage.getItem("Username");
+    if (StoreName){
+        document.getElementById('header').innerHTML = "Greetings " + StoreName;
+    }
+    //The function to switch the chosen image
+    function SwitchImage(imageUrl, text){
+        var mainImage = document.getElementById('mainImage')
+        var takenby = document.getElementById('takenby')
+
+        mainImage.src = imageUrl;
+        takenby.innerText = text;
+
+    } 
+    //The function to toggle a different coloured theme
+    function Toggledifftheme(){
+        var PresentTheme = document.documentElement.getAttribute("data-theme");
+        var DiffTheme = "light";
+        if (PresentTheme == "dark"){
+            DiffTheme = "light";
+        } else {
+            DiffTheme = "dark";
+        }
+        document.documentElement.setAttribute("data-theme", DiffTheme)
+        localStorage.setItem("ThemePrefe", DiffTheme);
+
+        }
+    //The function to make the date and time according to the user's date & time
+    function DatesTime(){
+        var CurrentDate = new Date();
+        var DateTime = document.getElementById("CurrentDateTime");
+        DateTime.innerHTML = CurrentDate;
+    }
+    window.onload = DatesTime;
+
+    //The function to input the users name
+    function InputName(){
+        var Name = document.getElementById("NameInput").value;
+        document.getElementById("header").innerHTML = ("Good afternoon " + Name)
+
+        localStorage.setItem("Username", Name);
+    }
+    //The function to display the picture(s) (1 to 5)
+    function ShowPicture1(){
+        document.getElementById("Image").src= "https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg"
+        document.getElementById("AcknowledgementText").innerHTML = "Artificial intelligence, Brain, Think image. - By Geralt - Licensed under Pixabay License"
+    }
+
+    function ShowPicture2(){
+        document.getElementById("Image").src= "https://c0.wallpaperflare.com/preview/570/38/521/artificial-intelligence-technology-futuristic-science.jpg"
+        document.getElementById("AcknowledgementText").innerHTML = "“artificial intelligence, technology, futuristic, science, business” - By Wallpaper Flare - Licensed under No Known Copyright Restrictions"
+    }
+
+    function ShowPicture3(){
+        document.getElementById("Image").src= "https://upload.wikimedia.org/wikipedia/commons/7/7e/Robot-job-takeover-unemployment.jpg?20170601193158"
+        document.getElementById("AcknowledgementText").innerHTML = "“Robot job takeover unemployment” - By Qniksefat - Licensed under CC0 Public Domain"
+    }
+    function ShowPicture4(){
+        document.getElementById("Image").src= "https://c.pxhere.com/images/fe/8c/b915fc5d7667d29dd9a3eedae59a-1638452.jpg!d"
+        document.getElementById("AcknowledgementText").innerHTML = "“Robots & Humans” - By Mohamed Hassan - Licensed under CC0 Public Domain"
+    }
+    function ShowPicture5(){
+        document.getElementById("Image").src= "https://uploads-ssl.webflow.com/5ea82056771c9dd4b6f61bdc/626feca0c824dd1d57052af8_7.png"
+        document.getElementById("AcknowledgementText").innerHTML = "“Future of “Work”” - By Hongxin (Dean) Long - Licensed under No Known Copyright Restrictions"
+    }
+
+</script>
+
+    <header>
+        <!--The main title for the page-->
+        <h1 id = "MainHeader">THE EFFECT OF AI ON SMALL BUSINESSES 
+AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
+</h1>
+        <!--The button to toggle between the themes-->
+        <button onclick = "Toggledifftheme()"> Toggle Theme</button>
+    </header>
+</html>
+<nav>
+    <ul>
+        <!--Added a list to display the current discussed topics-->
+        <li><a href="#">Introduction</a></li>
+        <li><a href="#">What is Artificial Intelligence?</a></li>
+        <li><a href="#">Does artificial intelligence pose a risk to current data engineers, and does it have any advantages?</a></li>
+        <li><a href="#">The sustainability of data engineers along with artificial intelligence</a></li>
+    </ul>
+
+    <div style="text-align: center;">
+        <p>
+        <!--To display the current image-->
+        <img id="Image" src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" alt="Default Image">
+        <p id="AcknowledgementText">Artificial intelligence, Brain, Think image. - By Geralt - Licensed under Pixabay License </p>
+        <!--Added buttons for each photo in use-->
+            <button onclick = "ShowPicture1()" >AI</button>
+            <button onclick = "ShowPicture2()" >Could AI be helpful?</button>
+            <button onclick = "ShowPicture3()" >Robot Takeover</button>
+            <button onclick = "ShowPicture4()" >Coexistence</button>
+            <button onclick = "ShowPicture5()" >Future of Work</button>
+            </p>
+        </div>
+    
+</nav>
+
+<main>
+    <article>
+    <!--all the information from assignment 1 and assignment 2 combined-->
+      <h2>Introduction to AI</h2>
+      <p>Within this report, the topic question of “The effect of AI on small businesses and the role I want to pursue as a data engineer” will be discussed and dissected. The overall purpose of this report is to understand the impacts of AI and how it can be brought into the fields of data engineering. The report will explore what an AI is, what risk AI poses to current data engineers along with their advantages, the current applications of AI for current and future data engineers and how data engineers use AI tools to solve real-world problems.</p>
+      <h2>What is an AI?</h2>
+      <p>To understand what artificial intelligence is, it’s pivotal to understand its foundational principles as well as its potential to transform our future and living. Artificial intelligence, more commonly referred to as ‘AI’, is a branch of computer science that was designed to successfully perform a task asked by a human individual. The common applications of AI include and are not limited to: automated interfaces, visual perception, language translation as well as speech recognition. By combining numerous volumes of data with quick, repeated processing and clever algorithms, artificial intelligence enables software to automatically learn from patterns or features in the data
+        </p>
+      <h2>Does artificial intelligence pose a risk to current data engineers, and does it have any advantages?</h2>
+      <p>With artificial intelligence becoming more prominent as time passes, it’s inevitable to think about the jobs nowadays ceasing to be available due to the wave of upcoming AI. When pursuing to become a data engineer, it’s usual to be cautious of the sustainability of the work, however, to relieve fear, artificial intelligence isn’t placed to take over, but rather to assist in our daily jobs. Understanding that artificial intelligence and data engineering are closely interlinked is necessary for both the growth for AI and convenience for data engineers. On one side, finding purpose and making sense of unstructured data is the process known as data engineering. On the other side, artificial intelligence is programmed to learn as they go; hence, their ability to solve problems or configure sets of data will progressively improve over time. Moreover, a considerable amount of data is required for the development of important machine-learning algorithms. These include data from a number of sources, in various forms, and from a multitude of business processes to broaden and strengthen the conclusions and verdicts made by the algorithm. For that reason, pairing specific AI with data engineering efforts will further strengthen the current AI tools to generate the best insights, verdicts, and benefits from the available data.  
+        </p>
+      <h2>The sustainability of data engineers along with artificial intelligence</h2>
+      <p>Artificial intelligence taking over the jobs of humans has been talked about for numerous years, however, now that AI has advanced to an extreme point and will continue to further advance, should data engineers be worried about this situation? Short answer: no. 
+
+        There are numerous services and things AI are just simply unable to do yet. These include connecting disparate datasets, maintaining a pipeline, and sourcing logic from paid API services and so on are complex tasks that AI are ill-suited to do in this present time (Sisense Team, 2022). However, although yet not suited, AI is able to assist data engineers to allow them to work more efficiently. These can be done with the assistance of AI where AI analytic systems can add value by recommending a date model structure or applying simple rulesets to help standardize the data. The creativity and assistance of AI can allow data engineers to work more efficiently and productively, hence, the sustainability of data engineering is fruitful for years to come.
+        </p>
+
+
+    </article>
+  </main>
+
+  <aside>
+    <!--Added a bibliography-->
+    <h2>Bibliography</h2>
+    <ul>
+      <li><a href="#">Artificial Intelligence: https://pixabay.com/illustrations/artificial-intelligence-brain-think-3382507/</a></li>
+      <li><a href="#">“artificial intelligence, technology, futuristic, science, business”: https://www.wallpaperflare.com/artificial-intelligence-technology-futuristic-science-business-wallpaper-aiule</a></li>
+      <li><a href="#">“Robot job takeover unemployment”: https://commons.wikimedia.org/wiki/File:Robot-job-takeover-unemployment.jpg</a></li>
+      <li><a href="#">“Robots & Humans”: https://pxhere.com/en/photo/1638452</a></li>
+      <li><a href="#">“Future of “Work”: https://www.deanlong.io/blog/future-of-work</a></li>
+    </ul>
+  </aside>
+
+
+
+
