@@ -9,26 +9,28 @@
 </head>
 <body>
 <header id="header"></header>
+<!--Displays the current date and time-->
 <p id = "CurrentDateTime" style="text-align: center;"></p>
 
     <form>
+        <!--Prompts the user to input their name -->
         <input type="text" id = "NameInput" name="user_name" placeholder="Enter your name!">        
         <button type="submit" onclick ="InputName()">Apply!</button> 
     </form>
 
 </body>
 <script>
-
+    //Reads the local storage on page load and changes the users preferred settings
     const StoredTheme = localStorage.getItem("ThemePrefe");
     if (StoredTheme){
         document.documentElement.setAttribute("data-theme", StoredTheme)
     }
-
+    
     const StoreName = localStorage.getItem("Username");
     if (StoreName){
         document.getElementById('header').innerHTML = "Greetings " + StoreName;
     }
-
+    //The function to switch the chosen image
     function SwitchImage(imageUrl, text){
         var mainImage = document.getElementById('mainImage')
         var takenby = document.getElementById('takenby')
@@ -37,6 +39,7 @@
         takenby.innerText = text;
 
     } 
+    //The function to toggle a different coloured theme
     function Toggledifftheme(){
         var PresentTheme = document.documentElement.getAttribute("data-theme");
         var DiffTheme = "light";
@@ -49,7 +52,7 @@
         localStorage.setItem("ThemePrefe", DiffTheme);
 
         }
-    
+    //The function to make the date and time according to the user's date & time
     function DatesTime(){
         var CurrentDate = new Date();
         var DateTime = document.getElementById("CurrentDateTime");
@@ -57,13 +60,14 @@
     }
     window.onload = DatesTime;
 
+    //The function to input the users name
     function InputName(){
         var Name = document.getElementById("NameInput").value;
         document.getElementById("header").innerHTML = ("Good afternoon " + Name)
 
         localStorage.setItem("Username", Name);
     }
-
+    //The function to display the picture(s) (1 to 5)
     function ShowPicture1(){
         document.getElementById("Image").src= "https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg"
         document.getElementById("AcknowledgementText").innerHTML = "Artificial intelligence, Brain, Think image. - By Geralt - Licensed under Pixabay License"
@@ -90,14 +94,17 @@
 </script>
 
     <header>
+        <!--The main title for the page-->
         <h1 id = "MainHeader">THE EFFECT OF AI ON SMALL BUSINESSES 
 AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
 </h1>
+        <!--The button to toggle between the themes-->
         <button onclick = "Toggledifftheme()"> Toggle Theme</button>
     </header>
 </html>
 <nav>
     <ul>
+        <!--Added a list to display the current discussed topics-->
         <li><a href="#">Introduction</a></li>
         <li><a href="#">What is Artificial Intelligence?</a></li>
         <li><a href="#">Does artificial intelligence pose a risk to current data engineers, and does it have any advantages?</a></li>
@@ -106,8 +113,10 @@ AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
 
     <div style="text-align: center;">
         <p>
+        <!--To display the current image-->
         <img id="Image" src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" alt="Default Image">
         <p id="AcknowledgementText">Artificial intelligence, Brain, Think image. - By Geralt - Licensed under Pixabay License </p>
+        <!--Added buttons for each photo in use-->
             <button onclick = "ShowPicture1()" >AI</button>
             <button onclick = "ShowPicture2()" >Could AI be helpful?</button>
             <button onclick = "ShowPicture3()" >Robot Takeover</button>
@@ -138,6 +147,18 @@ AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
 
     </article>
   </main>
+
+  <aside>
+    <!--Added a bibliography-->
+    <h2>Bibliography</h2>
+    <ul>
+      <li><a href="#">Artificial Intelligence: https://pixabay.com/illustrations/artificial-intelligence-brain-think-3382507/</a></li>
+      <li><a href="#">“artificial intelligence, technology, futuristic, science, business”: https://www.wallpaperflare.com/artificial-intelligence-technology-futuristic-science-business-wallpaper-aiule</a></li>
+      <li><a href="#">“Robot job takeover unemployment”: https://commons.wikimedia.org/wiki/File:Robot-job-takeover-unemployment.jpg</a></li>
+      <li><a href="#">“Robots & Humans”: https://pxhere.com/en/photo/1638452</a></li>
+      <li><a href="#">“Future of “Work”: https://www.deanlong.io/blog/future-of-work</a></li>
+    </ul>
+  </aside>
 
 
 
