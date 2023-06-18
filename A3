@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>My page title</title>
+
+    <link rel="stylesheet" href="base.css">
+   
+    <script>
+        function SwitchImage(imageUrl, text){
+            var mainImage = document.getElementById('mainImage')
+            var takenby = document.getElementById('takenby')
+
+            mainImage.src = imageUrl;
+            takenby.innerText = text;
+
+        } 
+        function Toggledifftheme(){
+            const body = document.body;
+            if(body.getAttribute("data-theme")=="dark") {
+                body.removeAttribute("data-theme");
+            } else {
+                body.setAttribute("data-theme", "dark");
+            }
+        }
+        function DisplayTime(){
+            var dateTime = document.getElementById('datetime');
+            var currentDateTime = new Date().toLocaleString();
+            dateTime.innerText=currentDateTime;
+        }
+        DisplayTime();     
+
+        function submitForm(){
+            var product = document.getElementById("inp").value;
+            document.getElementById("MainHeader").innerHTML = ("Hello " + product)
+          }
+
+    </script>
+</head>
+<body>
+<div style="text-align: center;">
+    <img id="mainImage" src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg" alt="Default Image">
+    <p id="takenby">""Corfu - Sept 2005 - Ancient Olive Trees" by Gareth1953 All Right Now is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/?ref=openverse.</p>
+    </div>
+</body>
+    <header>
+        <h1 id = MainHeader>THE EFFECT OF AI ON SMALL BUSINESSES 
+AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
+</h1>
+        <button onclick = "Toggledifftheme()"> Toggle Theme</button>
+    </header>
+</html>
+<nav>
+    <ul>
+        <li><a href="#">Introduction</a></li>
+        <li><a href="#">What is Artificial Intelligence?</a></li>
+        <li><a href="#">Does artificial intelligence pose a risk to current data engineers, and does it have any advantages?</a></li>
+        <li><a href="#">The sustainability of data engineers along with artificial intelligence</a></li>
+    </ul>
+    
+</nav>
+<main>
+    <input type="text" id = "inp" name="user_name" placeholder="Enter your name!">        
+    <button type="submit" onclick ="submitForm()">Apply!</button>   
+</main>
