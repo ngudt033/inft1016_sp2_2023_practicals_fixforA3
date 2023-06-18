@@ -2,49 +2,77 @@
 <html>
     <head>
     <meta charset="utf-8">
-    <title>My page title</title>
+    <title>Assignment 3 - My WebPage</title>
 
     <link rel="stylesheet" href="base.css">
    
-    <script>
-        function SwitchImage(imageUrl, text){
-            var mainImage = document.getElementById('mainImage')
-            var takenby = document.getElementById('takenby')
-
-            mainImage.src = imageUrl;
-            takenby.innerText = text;
-
-        } 
-        function Toggledifftheme(){
-            const body = document.body;
-            if(body.getAttribute("data-theme")=="dark") {
-                body.removeAttribute("data-theme");
-            } else {
-                body.setAttribute("data-theme", "dark");
-            }
-        }
-        function DisplayTime(){
-            var dateTime = document.getElementById('datetime');
-            var currentDateTime = new Date().toLocaleString();
-            dateTime.innerText=currentDateTime;
-        }
-        DisplayTime();     
-
-        function submitForm(){
-            var product = document.getElementById("inp").value;
-            document.getElementById("MainHeader").innerHTML = ("Hello " + product)
-          }
-
-    </script>
 </head>
 <body>
-<div style="text-align: center;">
-    <img id="mainImage" src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg" alt="Default Image">
-    <p id="takenby">""Corfu - Sept 2005 - Ancient Olive Trees" by Gareth1953 All Right Now is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/?ref=openverse.</p>
-    </div>
+<header id="header"></header>
+
+    <form>
+        <input type="text" id = "NameInput" name="user_name" placeholder="Enter your name!">        
+        <button type="submit" onclick ="InputName()">Apply!</button> 
+    </form>
+
+
+
+    <div style="text-align: center;">
+        <img id="mainImage" src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg" alt="Default Image">
+        <p id="takenby">""Corfu - Sept 2005 - Ancient Olive Trees" by Gareth1953 All Right Now is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/?ref=openverse.</p>
+        </div>
 </body>
+<script>
+
+    const StoredTheme = localStorage.getItem("ThemePrefe");
+    if (StoredTheme){
+        document.documentElement.setAttribute("data-theme", StoredTheme)
+    }
+
+    const StoreName = localStorage.getItem("Username");
+    if (StoreName){
+        document.getElementById('header').innerHTML = "Greetings " + StoreName;
+    }
+
+    function SwitchImage(imageUrl, text){
+        var mainImage = document.getElementById('mainImage')
+        var takenby = document.getElementById('takenby')
+
+        mainImage.src = imageUrl;
+        takenby.innerText = text;
+
+    } 
+    function Toggledifftheme(){
+        var PresentTheme = document.documentElement.getAttribute("data-theme");
+        var DiffTheme = "light";
+        if (PresentTheme == "dark"){
+            DiffTheme = "light";
+        } else {
+            DiffTheme = "dark";
+        }
+        document.documentElement.setAttribute("data-theme", DiffTheme)
+        localStorage.setItem("ThemePrefe", DiffTheme);
+
+        }
+    
+    function DatesTime(){
+        var CurrentDate = new Date();
+        var DateTime = document.getElementById("CurrentDateAndTime");
+        DateTime.innerHTML = CurrentDate;
+    }
+    window.onload = DatesTime;
+
+    function InputName(){
+        var Name = document.getElementById("NameInput").value;
+        document.getElementById("header").innerHTML = ("Good afternoon " + Name)
+
+        localStorage.setItem("Username", Name);
+    }
+
+</script>
+
     <header>
-        <h1 id = MainHeader>THE EFFECT OF AI ON SMALL BUSINESSES 
+        <h1 id = "MainHeader">THE EFFECT OF AI ON SMALL BUSINESSES 
 AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
 </h1>
         <button onclick = "Toggledifftheme()"> Toggle Theme</button>
@@ -59,7 +87,3 @@ AND THE ROLE I WANT TO PURSUE AS A DATA ENGINEER
     </ul>
     
 </nav>
-<main>
-    <input type="text" id = "inp" name="user_name" placeholder="Enter your name!">        
-    <button type="submit" onclick ="submitForm()">Apply!</button>   
-</main>
